@@ -47,6 +47,11 @@ const RegionInfo regions[] = {
     RDEF(EU_868, 869.4f, 869.65f, 10, 0, 27, false, false, false),
 
     /*
+       For testing purpose to test the signal quality of the HW, to comply local regulations on max. power
+     */
+    RDEF(EU_868, 869.4f, 869.65f, 10, 0, 30, true, false, false),
+
+    /*
         https://lora-alliance.org/wp-content/uploads/2020/11/lorawan_regional_parameters_v1.0.3reva_0.pdf
      */
     RDEF(CN, 470.0f, 510.0f, 100, 0, 19, true, false, false),
