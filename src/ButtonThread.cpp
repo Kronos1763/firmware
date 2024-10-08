@@ -177,7 +177,7 @@ int32_t ButtonThread::runOnce()
 #if defined(USE_EINK) && defined(PIN_EINK_EN) // i.e. T-Echo
             // 4 clicks: toggle backlight
             case 4:
-                digitalWrite(PIN_EINK_EN, digitalRead(PIN_EINK_EN) == LOW);
+                // digitalWrite(PIN_EINK_EN, digitalRead(PIN_EINK_EN) == LOW); - not used as touch button is used
                 break;
 #endif
             // No valid multipress action
@@ -218,6 +218,12 @@ int32_t ButtonThread::runOnce()
 
                 // Update display (legacy behaviour)
                 screen->forceDisplay();
+                
+                // Toggle backlight using touch button
+                digitalWrite(PIN_EINK_EN, digitalRead(PIN_EINK_EN) == LOW);
+
+                // Write log power output setting                 
+                LOG_INFO("TX power set: level=%d\n", loraConfig.tx_power);
             }
             break;
         }
