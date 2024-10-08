@@ -222,8 +222,7 @@ int32_t ButtonThread::runOnce()
                 // Toggle backlight using touch button
                 digitalWrite(PIN_EINK_EN, digitalRead(PIN_EINK_EN) == LOW);
 
-                // Write log power output setting                 
-                LOG_INFO("TX power set: level=%d\n", loraConfig.tx_power);
+               
             }
             break;
         }
